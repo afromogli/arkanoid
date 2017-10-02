@@ -30,3 +30,16 @@
 *.exe
 *.out
 *.app
+
+
+# Visual studio
+Debug
+ipch
+/Arkanoid.sdf
+ipch
+/Arkanoid/Release
+/Release
+/Arkanoid.VC.VC.opendb
+*.VC.db
+*.VC.opendb
+*.suo
