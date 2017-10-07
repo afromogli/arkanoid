@@ -9,14 +9,14 @@ namespace Arkanoid
 {
    EPaddle::EPaddle() : Entity()
    {
-      m_boundingBox.setSize((int)GameConfig::PaddleSize.x, (int)GameConfig::PaddleSize.y);
+      m_rect.setSize((int)GameConfig::PaddleSize.x, (int)GameConfig::PaddleSize.y);
    }
 
    void EPaddle::update(const float & deltaTime)
    {
       float deltaSeconds = deltaTime / 1000;
       Vector2f nextPosition = getPosition() + m_velocity*deltaSeconds;
-      if ((nextPosition.y) > 0 && (nextPosition.y + m_boundingBox.getHeight()) < GameConfig::WinSize.y) {
+      if ((nextPosition.y) > 0 && (nextPosition.y + m_rect.getHeight()) < GameConfig::WinSize.y) {
          setPosition(nextPosition);
       }
    }
@@ -32,7 +32,7 @@ namespace Arkanoid
 
    bool EPaddle::IsColliding(const EBall& ball) const
    {
-      return ball.getBoundingBox().intersects(getBoundingBox());
+      return ball.getRect().intersects(getRect());
    }
 
    void EPaddle::DoBallCollision(EBall& ball)

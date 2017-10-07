@@ -9,7 +9,7 @@ namespace Arkanoid {
 
    EBall::EBall() : m_ballHits{0}
    {
-      m_boundingBox.setSize(GameConfig::BallDiameter, GameConfig::BallDiameter);
+      m_rect.setSize(GameConfig::BallDiameter, GameConfig::BallDiameter);
    }
 
    void EBall::update(const float& deltaTime)

@@ -6,7 +6,7 @@
 #include "Vector2.h"
 #include "NotImplementedException.h"
 #include "GraphicsSystem.h"
-#include "BoundingBox2d.h"
+#include "Rect2d.h"
 #include "GameConfig.h"
 
 using namespace std;
@@ -27,11 +27,11 @@ namespace Arkanoid {
       virtual ~Entity() {}
       inline const Vector2f& getPosition() const
       {
-         return m_boundingBox.getPosition();
+         return m_rect.getPosition();
       }
       inline void setPosition(const Vector2f& newPosition)
       {
-         m_boundingBox.setPosition(newPosition);
+         m_rect.setPosition(newPosition);
       }
 
       inline void setVelocity(const Vector2f& newVelocity)
@@ -44,9 +44,9 @@ namespace Arkanoid {
          return m_velocity;
       }
 
-      inline const BoundingBox2d& getBoundingBox() const
+      inline const Rect2d& getRect() const
       {
-         return m_boundingBox;
+         return m_rect;
       }
 
       virtual void update(const float& deltaTime) = 0;
@@ -54,7 +54,7 @@ namespace Arkanoid {
 
    protected:
       Vector2f m_velocity;
-      BoundingBox2d m_boundingBox;
+      Rect2d m_rect;
    };
    
 }

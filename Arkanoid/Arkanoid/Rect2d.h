@@ -4,7 +4,7 @@
 #include <assert.h>
 
 namespace Arkanoid {
-   class BoundingBox2d {
+   class Rect2d {
    private:
       int width;
       int height;
@@ -12,19 +12,19 @@ namespace Arkanoid {
       Vector2f position;
 
    public:
-      BoundingBox2d() {
+      Rect2d() {
          width = 0;
          height = 0;
          position = Vector2f();
       }
 
-      BoundingBox2d(const Vector2f& position, const int& width, const int& height) {
+      Rect2d(const Vector2f& position, const int& width, const int& height) {
          this->width = width; 
          this->height = height;
          this->position = position;
       }
 
-      bool intersects(const BoundingBox2d& otherBBox) const;
+      bool intersects(const Rect2d& otherBBox) const;
 
       const Vector2f& getPosition() const {
          return position;
@@ -34,15 +34,15 @@ namespace Arkanoid {
          this->position = position;
       }
 
-      const int& getWidth() const {
+      const int getWidth() const {
          return width;
       }
 
-      const int& getHeight() const {
+      const int getHeight() const {
          return height;
       }
 
-      void setSize(const int& width, const int& height)
+      void setSize(const int width, const int height)
       {
          this->width = width;
          this->height = height;
