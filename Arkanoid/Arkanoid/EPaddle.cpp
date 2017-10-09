@@ -2,7 +2,6 @@
 #include "GameConfig.h"
 #include <SDL2\SDL.h>
 #include <SDL2_gfxPrimitives.h>
-#include <iostream>
 #include "Math.h"
 
 namespace Arkanoid
@@ -14,8 +13,8 @@ namespace Arkanoid
 
    void EPaddle::update(const float & deltaTime)
    {
-      float deltaSeconds = deltaTime / 1000;
-      Vector2f nextPosition = getPosition() + m_velocity*deltaSeconds;
+      const float deltaSeconds = deltaTime / 1000;
+      const Vector2f nextPosition = getPosition() + m_velocity*deltaSeconds;
       if ((nextPosition.y) > 0 && (nextPosition.y + m_rect.getHeight()) < GameConfig::WinSize.y) {
          setPosition(nextPosition);
       }
@@ -30,19 +29,19 @@ namespace Arkanoid
       roundedBoxRGBA(graphics.getRenderer(), (Sint16)start.x, (Sint16)start.y, (Sint16)end.x, (Sint16)end.y, 2, 255, 255, 255, 255);
    }
 
-   bool EPaddle::IsColliding(const EBall& ball) const
+   bool EPaddle::isColliding(const EBall& ball) const
    {
       return ball.getRect().intersects(getRect());
    }
 
-   void EPaddle::DoBallCollision(EBall& ball)
+   void EPaddle::doBallCollision(EBall& ball) const
    {
-      float relativeIntersectY = (getPosition().y + GameConfig::PaddleSize.y / 2) - ball.getPosition().y;
-      float normalizedRelativeIntersectionY = (relativeIntersectY / (GameConfig::PaddleSize.y / 2));
-      float bounceAngle = normalizedRelativeIntersectionY * EBall::MAXBOUNCEANGLE * (float)PI / 180.0f;
+      const float relativeIntersectY = (getPosition().y + GameConfig::PaddleSize.y / 2) - ball.getPosition().y;
+      const float normalizedRelativeIntersectionY = (relativeIntersectY / (GameConfig::PaddleSize.y / 2));
+      const float bounceAngle = normalizedRelativeIntersectionY * EBall::Maxbounceangle * static_cast<float>(PI) / 180.0f;
 
       //ball.incBallSpeed();
-      float currentBallSpeed = ball.getCurrentSpeed();
+      const float currentBallSpeed = ball.getCurrentSpeed();
       float ballVx, ballVy;
       if (getPosition().x < GameConfig::WinSize.x / 2)
       {

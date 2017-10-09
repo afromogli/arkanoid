@@ -13,10 +13,10 @@ namespace Arkanoid
    class EPaddle : public Entity {
       friend class EntityFactory;
    public:
-      void update(const float& deltaTime);
-      void draw(GraphicsSystem& graphics);
-      bool IsColliding(const EBall& ball) const;
-      void DoBallCollision(EBall& ball);
+      void update(const float& deltaTime) override;
+      void draw(GraphicsSystem& graphics) override;
+      bool isColliding(const EBall& ball) const;
+      void doBallCollision(EBall& ball) const;
    private:
       EPaddle();
    };

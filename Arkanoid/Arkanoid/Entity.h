@@ -20,26 +20,28 @@ namespace Arkanoid {
    public:
 
       virtual ~Entity() {}
-      inline const Vector2f& getPosition() const
+
+      const Vector2f& getPosition() const
       {
          return m_rect.getPosition();
       }
-      inline void setPosition(const Vector2f& newPosition)
+
+      void setPosition(const Vector2f& newPosition)
       {
          m_rect.setPosition(newPosition);
       }
 
-      inline void setVelocity(const Vector2f& newVelocity)
+      void setVelocity(const Vector2f& newVelocity)
       {
          m_velocity = Vector2f(newVelocity);
       }
 
-      inline const Vector2f& getVelocity() const
+      const Vector2f& getVelocity() const
       {
          return m_velocity;
       }
 
-      inline const Rect2D& getRect() const
+      const Rect2D& getRect() const
       {
          return m_rect;
       }

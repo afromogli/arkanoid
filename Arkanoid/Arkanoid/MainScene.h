@@ -15,9 +15,9 @@ namespace Arkanoid
       MainScene(GraphicsSystem& graphics, AudioSystem& audioSystem);
       ~MainScene();
 
-      void handleInput(const Uint8 *keyboardState);
-      void update(const float& deltaTime);
-      void draw(GraphicsSystem& graphics);
+      void handleInput(const Uint8 *keyboardState) override;
+      void update(const float& deltaTime) override;
+      void draw(GraphicsSystem& graphics) override;
    
    private:
       vector<shared_ptr<Entity>> m_allEntities;      

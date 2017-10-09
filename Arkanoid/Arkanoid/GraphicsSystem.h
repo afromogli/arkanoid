@@ -1,7 +1,6 @@
 #pragma once
 
 #include <vector>
-#include <memory>
 #include <SDL2\SDL.h>
 
 using namespace std;
@@ -12,12 +11,12 @@ namespace Arkanoid {
       GraphicsSystem(const int& xWinPosition, const int& yWinPosition, const int& width, const int& height);
       ~GraphicsSystem();
 
-      void startFrame();
-      void endFrame();
+      void startFrame() const;
+      void endFrame() const;
 
       SDL_Renderer* getRenderer() const;
 
-      SDL_Texture* loadTexture(const std::string &str);
+      SDL_Texture* loadTexture(const std::string &str) const;
    
    private:
       SDL_Window* m_window;
@@ -25,10 +24,10 @@ namespace Arkanoid {
       SDL_Rect m_windowRect;
       
       bool initEverything();
-      bool initSDL();
+      static bool initSDL();
       bool createWindow();
       bool createRenderer();
-      void setupRenderer();      
+      void setupRenderer() const;      
    };
 
 }

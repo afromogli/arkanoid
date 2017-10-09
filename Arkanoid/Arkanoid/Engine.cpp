@@ -12,7 +12,7 @@ namespace Arkanoid {
       m_currentScene{ shared_ptr<Scene>(nullptr) }
    {
       if (entityFactoryInstance == nullptr) {
-         entityFactoryInstance = unique_ptr<EntityFactory>(new EntityFactory(m_graphicsSystem));
+         entityFactoryInstance = std::make_unique<EntityFactory>(m_graphicsSystem);
       }
       if (m_audioSystem.init() == false)
       {
@@ -53,7 +53,7 @@ namespace Arkanoid {
          while (lag >= GameConfig::MsPerUpdate)
          {
             m_currentScene->update(GameConfig::MsPerUpdate);
-            lag -= (Uint64)GameConfig::MsPerUpdate;
+            lag -= static_cast<Uint64>(GameConfig::MsPerUpdate);
          }
          
          m_graphicsSystem.startFrame();
@@ -65,7 +65,7 @@ namespace Arkanoid {
       }
    }
 
-   void Engine::setScene(shared_ptr<Scene> newScene)
+   void Engine::setScene(const shared_ptr<Scene> newScene)
    {
       this->m_currentScene = newScene;
    }

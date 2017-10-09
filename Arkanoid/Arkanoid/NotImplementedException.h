@@ -3,10 +3,10 @@
 #include <stdexcept>
 
 namespace Arkanoid {
-   class NotImplementedException : public std::logic_error
+   class NotImplementedException : public logic_error
    {
    public:
-      NotImplementedException() : std::logic_error("Function not yet implemented") { };
+      NotImplementedException() : logic_error("Function not yet implemented") { };
    };
 }
 

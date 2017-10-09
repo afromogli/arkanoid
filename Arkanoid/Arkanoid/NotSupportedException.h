@@ -7,6 +7,6 @@ namespace Arkanoid {
    class NotSupportedException : public std::logic_error
    {
    public:
-      NotSupportedException(std::string message) : std::logic_error(message) { };
+      NotSupportedException(std::string message) : logic_error(message) { };
    };
 }

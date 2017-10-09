@@ -21,14 +21,14 @@ namespace Arkanoid {
       SDL_Quit();
    }
 
-   void GraphicsSystem::startFrame() 
+   void GraphicsSystem::startFrame() const
    {
       // Clear the window and make it all black
       SDL_SetRenderDrawColor(this->m_renderer, 0x00, 0x00, 0x00, 0x00);
       SDL_RenderClear(this->m_renderer);
    }
 
-   void GraphicsSystem::endFrame()
+   void GraphicsSystem::endFrame() const
    {
       // Render the changes above
       SDL_RenderPresent(this->m_renderer);
@@ -88,7 +88,7 @@ namespace Arkanoid {
       return true;
    }
 
-   void GraphicsSystem::setupRenderer()
+   void GraphicsSystem::setupRenderer() const
    {
       TTF_Init();
 
@@ -104,7 +104,7 @@ namespace Arkanoid {
       return m_renderer;
    }
 
-   SDL_Texture* GraphicsSystem::loadTexture(const std::string &str)
+   SDL_Texture* GraphicsSystem::loadTexture(const std::string &str) const
    {
       // Load image as SDL_Surface
       SDL_Surface* surface = SDL_LoadBMP(str.c_str());

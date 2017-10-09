@@ -1,8 +1,6 @@
 #include "EBall.h"
-#include "NotImplementedException.h"
 #include "GameConfig.h"
 #include <SDL2_gfxPrimitives.h>
-#include <iostream>
 
 namespace Arkanoid {   
    
@@ -14,15 +12,15 @@ namespace Arkanoid {
 
    void EBall::update(const float& deltaTime)
    {
-      float deltaSeconds = deltaTime / 1000;
-      Vector2f nextPosition = getPosition() + m_velocity*deltaSeconds;
+      const float deltaSeconds = deltaTime / 1000;
+      const Vector2f nextPosition = getPosition() + m_velocity*deltaSeconds;
       setPosition(nextPosition);
    }
 
    void EBall::draw(GraphicsSystem& graphics)
    {
       const Vector2f& position = getPosition();
-      filledCircleRGBA(graphics.getRenderer(), (Sint16)position.x, (Sint16)position.y, GameConfig::BallDiameter, 255, 255, 255, 255);
+      filledCircleRGBA(graphics.getRenderer(), static_cast<Sint16>(position.x), static_cast<Sint16>(position.y), GameConfig::BallDiameter, 255, 255, 255, 255);
    }
 
    /*void EBall::incBallSpeed()

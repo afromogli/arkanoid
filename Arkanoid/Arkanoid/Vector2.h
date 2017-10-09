@@ -1,9 +1,6 @@
 #pragma once
 
-#include <math.h>
 #include <string>
-#include <sstream>
-
 
 namespace Arkanoid
 {
