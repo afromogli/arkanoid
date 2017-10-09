@@ -26,7 +26,7 @@ namespace Arkanoid
       const Vector2f& position = getPosition();
       const Vector2f start = Vector2f(position.x, position.y);
       const Vector2f end = Vector2f(position.x + GameConfig::PaddleSize.x, position.y + GameConfig::PaddleSize.y);
-      roundedBoxRGBA(graphics.getRenderer(), (Sint16)start.x, (Sint16)start.y, (Sint16)end.x, (Sint16)end.y, 2, 255, 255, 255, 255);
+      roundedBoxRGBA(graphics.getRenderer(), static_cast<Sint16>(start.x), static_cast<Sint16>(start.y), static_cast<Sint16>(end.x), static_cast<Sint16>(end.y), 2, 255, 255, 255, 255);
    }
 
    bool EPaddle::isColliding(const EBall& ball) const
