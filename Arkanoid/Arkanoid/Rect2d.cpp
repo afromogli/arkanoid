@@ -1,11 +1,9 @@
 #include "Rect2d.h"
-#include <math.h>
-#include <iostream>
 
 using namespace std;
 
 namespace Arkanoid {
-   bool Rect2d::intersects(const Rect2d& otherBBox) const {
+   bool Rect2D::intersects(const Rect2D& otherBBox) const {
       float xDiff = fabs((position.x + width / 2)- (otherBBox.position.x + otherBBox.getWidth() / 2));
       float yDiff = fabs((position.y + height / 2) - (otherBBox.position.y+ otherBBox.getHeight() / 2));
 

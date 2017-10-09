@@ -1,13 +1,8 @@
 #pragma once
 
-#include <memory>
-#include <vector>
-
 #include "Vector2.h"
-#include "NotImplementedException.h"
 #include "GraphicsSystem.h"
 #include "Rect2d.h"
-#include "GameConfig.h"
 
 using namespace std;
 
@@ -44,7 +39,7 @@ namespace Arkanoid {
          return m_velocity;
       }
 
-      inline const Rect2d& getRect() const
+      inline const Rect2D& getRect() const
       {
          return m_rect;
       }
@@ -54,7 +49,7 @@ namespace Arkanoid {
 
    protected:
       Vector2f m_velocity;
-      Rect2d m_rect;
+      Rect2D m_rect;
    };
    
 }

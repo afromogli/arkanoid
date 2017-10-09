@@ -1,10 +1,9 @@
 #pragma once
 
 #include "Vector2.h"
-#include <assert.h>
 
 namespace Arkanoid {
-   class Rect2d {
+   class Rect2D {
    private:
       int width;
       int height;
@@ -12,19 +11,19 @@ namespace Arkanoid {
       Vector2f position;
 
    public:
-      Rect2d() {
+      Rect2D() {
          width = 0;
          height = 0;
          position = Vector2f();
       }
 
-      Rect2d(const Vector2f& position, const int& width, const int& height) {
+      Rect2D(const Vector2f& position, const int& width, const int& height) {
          this->width = width; 
          this->height = height;
          this->position = position;
       }
 
-      bool intersects(const Rect2d& otherBBox) const;
+      bool intersects(const Rect2D& otherBBox) const;
 
       const Vector2f& getPosition() const {
          return position;
