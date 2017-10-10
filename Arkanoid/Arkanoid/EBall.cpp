@@ -1,6 +1,5 @@
 #include "EBall.h"
 #include "GameConfig.h"
-#include <SDL2_gfxPrimitives.h>
 
 namespace Arkanoid {   
    
@@ -19,8 +18,7 @@ namespace Arkanoid {
 
    void EBall::draw(GraphicsSystem& graphics)
    {
-      const Vector2f& position = getPosition();
-      filledCircleRGBA(graphics.getRenderer(), static_cast<Sint16>(position.x), static_cast<Sint16>(position.y), GameConfig::BallDiameter, 255, 255, 255, 255);
+      graphics.drawFilledCircle(getPosition(), GameConfig::BallDiameter, Colors::White);
    }
 
    /*void EBall::incBallSpeed()

@@ -1,7 +1,9 @@
 #pragma once
 
-#include <vector>
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
+#include "Vector2.h"
+#include "Color.h"
+#include "Rect2d.h"
 
 using namespace std;
 
@@ -17,6 +19,9 @@ namespace Arkanoid {
       SDL_Renderer* getRenderer() const;
 
       SDL_Texture* loadTexture(const std::string &str) const;
+
+      void drawFilledCircle(const Vector2f position, const int diameter, const Color color) const;
+      void drawFilledRoundedBox(const Rect2D rect, const int borderRadius, const Color color) const;
    
    private:
       SDL_Window* m_window;
@@ -27,7 +32,7 @@ namespace Arkanoid {
       static bool initSDL();
       bool createWindow();
       bool createRenderer();
-      void setupRenderer() const;      
+      void setupRenderer() const;
    };
 
 }

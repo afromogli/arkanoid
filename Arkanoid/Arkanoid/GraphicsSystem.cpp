@@ -2,8 +2,9 @@
 
 #include <iostream>
 #include <assert.h>
-#include <SDL2\SDL.h>
+#include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
+#include <SDL2_gfxPrimitives.h>
 
 namespace Arkanoid {
    GraphicsSystem::GraphicsSystem(const int& xWinPosition, const int& yWinPosition, const int& width, const int& height)
@@ -117,5 +118,17 @@ namespace Arkanoid {
       SDL_FreeSurface(surface);
 
       return texture;
+   }
+
+   void GraphicsSystem::drawFilledCircle(const Vector2f position, const int diameter, const Color color) const
+   {
+      filledCircleRGBA(m_renderer, Sint16(position.x), Sint16(position.y), diameter, color.R, color.G, color.B, color.A);
+   }
+
+   void GraphicsSystem::drawFilledRoundedBox(const Rect2D rect, const int borderRadius, const Color color) const
+   {
+      roundedBoxRGBA(m_renderer, static_cast<Sint16>(rect.getPosition().x), static_cast<Sint16>(rect.getPosition().y), 
+         static_cast<Sint16>(rect.getPosition().x + rect.getWidth()), static_cast<Sint16>(rect.getPosition().y + rect.getHeight()),
+         borderRadius, color.R, color.G, color.B, color.A);
    }
 }

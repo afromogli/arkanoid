@@ -27,9 +27,9 @@ namespace Arkanoid {
       Uint64 lag = 0;
       while (runApplication)
       {
-         Uint64 current = SDL_GetPerformanceCounter();
+         const Uint64 current = SDL_GetPerformanceCounter();
          // Deltatime in milliseconds
-         Uint64 elapsed = (((current - previous) * 1000 / SDL_GetPerformanceFrequency()));
+         const Uint64 elapsed = (((current - previous) * 1000 / SDL_GetPerformanceFrequency()));
          previous = current;
          lag += elapsed;
 

@@ -1,14 +1,12 @@
 #include "EPaddle.h"
 #include "GameConfig.h"
-#include <SDL2\SDL.h>
-#include <SDL2_gfxPrimitives.h>
 #include "Math.h"
 
 namespace Arkanoid
 {
    EPaddle::EPaddle() : Entity()
    {
-      m_rect.setSize((int)GameConfig::PaddleSize.x, (int)GameConfig::PaddleSize.y);
+      m_rect.setSize(static_cast<int>(GameConfig::PaddleSize.x), static_cast<int>(GameConfig::PaddleSize.y));
    }
 
    void EPaddle::update(const float & deltaTime)
@@ -22,11 +20,7 @@ namespace Arkanoid
 
    void EPaddle::draw(GraphicsSystem & graphics)
    {
-      // Treated as the paddles upper left position
-      const Vector2f& position = getPosition();
-      const Vector2f start = Vector2f(position.x, position.y);
-      const Vector2f end = Vector2f(position.x + GameConfig::PaddleSize.x, position.y + GameConfig::PaddleSize.y);
-      roundedBoxRGBA(graphics.getRenderer(), static_cast<Sint16>(start.x), static_cast<Sint16>(start.y), static_cast<Sint16>(end.x), static_cast<Sint16>(end.y), 2, 255, 255, 255, 255);
+      graphics.drawFilledRoundedBox(m_rect, 2, Colors::White);
    }
 
    bool EPaddle::isColliding(const EBall& ball) const
