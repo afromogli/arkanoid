@@ -26,7 +26,7 @@ namespace Arkanoid
       static constexpr float BrickHeight = 20;
 
       static constexpr unsigned int BoardColumns = 20;
-      static constexpr unsigned int BoardRows = 5;
+      static constexpr unsigned int BoardRows = 4;
       static constexpr float BrickSpacing = 4;
       static constexpr Vector2f BoardUpperLeftPos = Vector2f(60.f, 5.f);
 
