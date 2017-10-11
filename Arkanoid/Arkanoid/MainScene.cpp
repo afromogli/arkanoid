@@ -1,15 +1,13 @@
 #include "MainScene.h"
 #include "Engine.h"
-#include "GameConfig.h"
-#include <math.h>
-#include <iostream>
-#include <SDL2_gfxPrimitives.h>
-#include <random>
-#include "xorshift.h"
+
 
 namespace Arkanoid
 {
-   MainScene::MainScene(GraphicsSystem& graphics, AudioSystem& audioSystem) : m_graphics{ graphics }, m_audioSystem{audioSystem}
+   MainScene::MainScene(GraphicsSystem& graphics, AudioSystem& audioSystem) : 
+      m_board{ GameConfig::BoardUpperLeftPos }, 
+      m_graphics{ graphics }, 
+      m_audioSystem{ audioSystem }
    {
    }
 
@@ -33,18 +31,16 @@ namespace Arkanoid
 
    void MainScene::update(const float& deltaTime)
    {
-      for (auto entity : m_allEntities)
-      {
-         entity->update(deltaTime);
-      }
+      m_board.update(deltaTime);
    }
 
    void MainScene::draw(GraphicsSystem& graphics)
    {
-      for (auto entity : m_allEntities)
+      m_board.draw(graphics);
+      /*for (auto obj : m_allEntities)
       {
-         entity->draw(graphics);
-      }
+         obj.draw(graphics);
+      }*/
    }
 }
 

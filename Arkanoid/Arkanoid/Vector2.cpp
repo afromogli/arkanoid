@@ -7,14 +7,14 @@ namespace Arkanoid
 {
    Vector2f Vector2f::Zero = Vector2f(0, 0);
    
-   inline float Vector2f::distanceTo(const Vector2f & otherVec) const
+   float Vector2f::distanceTo(const Vector2f & otherVec) const
    {
       const float xDiff = otherVec.x - this->x;
       const float yDiff = otherVec.y - this->y;
       return sqrt(xDiff*xDiff + yDiff*yDiff);
    }
 
-   inline const float Vector2f::length() const
+   const float Vector2f::length() const
    {
       return sqrt(x*x + y*y);
    }
@@ -37,7 +37,7 @@ namespace Arkanoid
       return dist(gen);
    }
 
-   inline std::string Vector2f::toString() const
+   std::string Vector2f::toString() const
    {
       std::ostringstream outStream;
       outStream << "x: ";

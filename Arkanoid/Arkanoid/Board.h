@@ -17,7 +17,5 @@ namespace Arkanoid
    private:
       Brick* m_bricks;
       static constexpr Color BricksColors[4] = { { 230,0,0 },{ 0,230,0 },{ 0,0,230 },{ 0,230,230 } };
-
-
    };
 }

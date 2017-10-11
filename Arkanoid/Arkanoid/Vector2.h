@@ -7,9 +7,10 @@ namespace Arkanoid
    class Vector2f
    {
    public:
-      Vector2f() : x(0), y(0) {}
-      Vector2f(const float xPos, const float yPos) : x(xPos), y(yPos) {}
-      
+      constexpr Vector2f() : x(0), y(0) {}
+      constexpr Vector2f(const float xPos, const float yPos) : x(xPos), y(yPos) {}
+      constexpr Vector2f(const Vector2f& other) : x(other.x), y(other.y) {}
+
       float x;
       float y;
 

@@ -54,12 +54,9 @@ namespace Arkanoid {
          return m_rect;
       }
 
-     
-
    protected:
       Vector2f m_velocity;
       Rect2D m_rect;
    };
-   
 }
 

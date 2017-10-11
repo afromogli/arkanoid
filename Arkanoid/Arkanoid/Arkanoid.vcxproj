@@ -163,7 +163,6 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="EPaddle.cpp" />
-    <ClCompile Include="GameConfig.cpp" />
     <ClCompile Include="GraphicsSystem.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
