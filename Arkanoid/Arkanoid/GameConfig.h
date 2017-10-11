@@ -20,7 +20,7 @@ namespace Arkanoid
       static constexpr float BallSpeedIncPerHit = 12.0f;
 
       static constexpr int BallDiameter = 5;
-      static constexpr float PaddleSpeed = 350.0; // Pixels per second;
+      static constexpr float PaddleSpeed = 400.0; // Pixels per second;
 
       static constexpr float BrickWidth = 40;
       static constexpr float BrickHeight = 20;

@@ -13,7 +13,7 @@ namespace Arkanoid
       m_ball = std::dynamic_pointer_cast<EBall>(Engine::entityFactoryInstance->createEntity(EntityType::Ball));
       
       m_paddle->setPosition(GameConfig::InitialPlayerPaddlePosition);
-      
+      positionBallAbovePaddle();
 
       m_allEntities.push_back(m_paddle);
       m_allEntities.push_back(m_ball);
@@ -47,7 +47,7 @@ namespace Arkanoid
       {
          if (m_ball->getVelocity().length() <= 0)
          {
-            respawnBall();
+            m_ball->setVelocity(Vector2f(5, -GameConfig::BallSpeed));
          }
       }
    }
@@ -60,6 +60,12 @@ namespace Arkanoid
       {
          entity->update(deltaTime);
       }
+
+      // If ball has not been released from paddle yet, update ball position
+      if (m_ball->getVelocity().length() <= 0)
+      {
+         positionBallAbovePaddle();
+      }
    }
 
    void MainScene::draw(GraphicsSystem& graphics)
@@ -71,10 +77,10 @@ namespace Arkanoid
       }
    }
 
-   void MainScene::respawnBall() const
+   void MainScene::positionBallAbovePaddle() const
    {
       m_ball->setPosition(m_paddle->getPosition() + Vector2f(GameConfig::PaddleSize.x / 2.f, -float(GameConfig::BallDiameter)));
-      m_ball->setVelocity(Vector2f(5, -GameConfig::BallSpeed));
+      
    }
 }
 

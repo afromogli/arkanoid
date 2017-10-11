@@ -29,7 +29,7 @@ namespace Arkanoid
       GraphicsSystem& m_graphics;
       AudioSystem& m_audioSystem;
 
-      void respawnBall() const;
+      void positionBallAbovePaddle() const;
    };
 }
 
