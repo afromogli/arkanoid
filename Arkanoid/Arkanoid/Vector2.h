@@ -37,6 +37,11 @@ namespace Arkanoid
          return Vector2f(x+otherVec.x, y+otherVec.y);
       }
 
+      Vector2f operator-(const Vector2f& otherVec) const
+      {
+         return Vector2f(x - otherVec.x, y - otherVec.y);
+      }
+
       Vector2f& operator+=(const Vector2f& otherVec) 
       {
          x += otherVec.x;

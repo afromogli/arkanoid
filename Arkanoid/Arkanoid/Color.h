@@ -35,5 +35,6 @@ namespace Arkanoid
       }
 
       static constexpr Color White = MakeRGB(255, 255, 255, 255);
+      static constexpr Color DarkGrey = MakeRGB(169, 169, 169, 255);
    }
 }

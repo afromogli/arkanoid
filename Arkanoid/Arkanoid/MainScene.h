@@ -4,6 +4,7 @@
 #include "AudioSystem.h"
 #include "Entity.h"
 #include "Board.h"
+#include "EPaddle.h"
 
 using namespace std;
 
@@ -20,10 +21,15 @@ namespace Arkanoid
       void draw(GraphicsSystem& graphics) override;
    
    private:
-      vector<Entity> m_allEntities;
+      vector<shared_ptr<Entity>> m_allEntities;
       Board m_board;
+      shared_ptr<EPaddle> m_paddle;
+      shared_ptr<EBall> m_ball;
+
       GraphicsSystem& m_graphics;
       AudioSystem& m_audioSystem;
+
+      void respawnBall() const;
    };
 }
 

@@ -17,11 +17,11 @@ namespace Arkanoid
          m_graphicsSystem{graphicsSystem}
       {
       }
-      shared_ptr<Entity> createEntity(const EntityType &type);
+      shared_ptr<Entity> createEntity(const EntityType &type) const;
 
    private:
-      const shared_ptr<Entity> createBallEntity();
-      const shared_ptr<Entity> createPaddleEntity();
+      static shared_ptr<Entity> createBallEntity();
+      static shared_ptr<Entity> createPaddleEntity();
 
       GraphicsSystem& m_graphicsSystem;
    };

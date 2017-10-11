@@ -8,7 +8,7 @@
 
 namespace Arkanoid
 {
-   shared_ptr<Entity> EntityFactory::createEntity(const EntityType& type)
+   shared_ptr<Entity> EntityFactory::createEntity(const EntityType& type) const
    {
       shared_ptr<Entity> entity = nullptr;
       switch (type)
@@ -25,16 +25,14 @@ namespace Arkanoid
       return entity;
    }
 
-   const shared_ptr<Entity> EntityFactory::createBallEntity()
+   shared_ptr<Entity> EntityFactory::createBallEntity()
    {
-      shared_ptr<Entity> ball = shared_ptr<Entity>(new EBall());
-      return ball;
+      return shared_ptr<Entity>(new EBall());
    }
 
-   const shared_ptr<Entity> EntityFactory::createPaddleEntity()
+   shared_ptr<Entity> EntityFactory::createPaddleEntity()
    {
-      shared_ptr<Entity> paddle = shared_ptr<Entity>(new EPaddle());
-      return paddle;
+      return shared_ptr<Entity>(new EPaddle());
    }
 }
 

@@ -6,7 +6,7 @@ namespace Arkanoid
 {
    EPaddle::EPaddle() : Entity()
    {
-      m_rect.setSize(static_cast<int>(GameConfig::PaddleSize.x), static_cast<int>(GameConfig::PaddleSize.y));
+      m_rect.setSize(int(GameConfig::PaddleSize.x), int(GameConfig::PaddleSize.y));
    }
 
    void EPaddle::update(const float & deltaTime)
@@ -20,7 +20,7 @@ namespace Arkanoid
 
    void EPaddle::draw(GraphicsSystem & graphics)
    {
-      graphics.drawFilledRoundedBox(m_rect, 2, Colors::White);
+      graphics.drawFilledRoundedBox(m_rect, 2, Colors::DarkGrey);
    }
 
    bool EPaddle::isColliding(const EBall& ball) const
