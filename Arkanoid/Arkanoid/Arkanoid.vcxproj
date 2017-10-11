@@ -94,13 +94,13 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2-2.0.5;C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2_mixer-2.0.1\include;C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2_ttf-2.0.14;C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2_gfx\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\ExternalDependencies\SDL2-2.0.5;$(SolutionDir)\ExternalDependencies\SDL2_mixer-2.0.1\include;$(SolutionDir)\ExternalDependencies\SDL2_ttf-2.0.14;$(SolutionDir)\ExternalDependencies\SDL2_gfx\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2_net.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2main.lib;SDL2.lib;SDL2_mixer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;SDL2_gfx.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2-2.0.5\lib\x86;C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2_gfx\lib;C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2_mixer-2.0.1\lib\x86;C:\Users\Aram\Source\arkanoid\Arkanoid\ExternalDependencies\SDL2_ttf-2.0.14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\ExternalDependencies\SDL2-2.0.5\lib\x86;$(SolutionDir)\ExternalDependencies\SDL2_gfx\lib;$(SolutionDir)\ExternalDependencies\SDL2_mixer-2.0.1\lib\x86;$(SolutionDir)\ExternalDependencies\SDL2_ttf-2.0.14;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
