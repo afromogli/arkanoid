@@ -21,6 +21,10 @@ namespace Arkanoid
       constexpr Color(const unsigned _int8 r, const unsigned _int8 g, const unsigned _int8 b, const unsigned _int8 a) : R{ r }, G{ g }, B{ b }, A{ a }
       {
       }
+
+      constexpr Color(const unsigned _int8 r, const unsigned _int8 g, const unsigned _int8 b) : R{ r }, G{ g }, B{ b }, A{ 255 }
+      {
+      }
    };
 
    namespace Colors

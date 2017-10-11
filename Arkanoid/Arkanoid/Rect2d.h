@@ -11,10 +11,16 @@ namespace Arkanoid {
          m_position = Vector2f();
       }
 
-      Rect2D(const Vector2f& position, const int& width, const int& height) {
+      Rect2D(const Vector2f position, const int width, const int height) {
          this->m_width = width; 
          this->m_height = height;
          this->m_position = position;
+      }
+
+      Rect2D(const Rect2D& other) {
+         m_width = other.getWidth();
+         m_height = other.getHeight();
+         m_position = other.getPosition();
       }
 
       bool intersects(const Rect2D& otherBBox) const;

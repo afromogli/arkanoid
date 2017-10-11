@@ -2,8 +2,9 @@
 
 namespace Arkanoid
 {
-   Brick::Brick(const Color color) : m_color(color)
+   Brick::Brick(const Rect2D rect, const Color color) : /*m_rect{ rect },*/ m_color{ color }
    {
+      m_rect = rect;
    }
 
    void Brick::update(const float& deltaTime)

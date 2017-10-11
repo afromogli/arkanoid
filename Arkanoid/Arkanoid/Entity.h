@@ -8,9 +8,17 @@ using namespace std;
 
 namespace Arkanoid {
 
+   class Object
+   {
+   public:
+      virtual ~Object() = default;
+      virtual void update(const float& deltaTime) = 0;
+      virtual void draw(GraphicsSystem& graphics) = 0;
+   };
+
    // Abstract base entity class
    // NOTE: DON'T CREATE Entity.cpp, this will break sub classes because of templating
-   class Entity
+   class Entity : public Object
    {
    protected:
 
@@ -46,8 +54,7 @@ namespace Arkanoid {
          return m_rect;
       }
 
-      virtual void update(const float& deltaTime) = 0;
-      virtual void draw(GraphicsSystem& graphics) = 0;
+     
 
    protected:
       Vector2f m_velocity;

@@ -135,7 +135,7 @@ namespace Arkanoid {
    void GraphicsSystem::drawFilledBox(const Rect2D rect, const Color color) const
    {
       boxRGBA(m_renderer, Sint16(rect.getPosition().x), Sint16(rect.getPosition().y),
-         rect.getPosition().x + rect.getWidth(), rect.getPosition().y + rect.getHeight(),
+         Sint16(rect.getPosition().x + rect.getWidth()), Sint16(rect.getPosition().y + rect.getHeight()),
          color.R, color.G, color.B, color.A);
    }
 }

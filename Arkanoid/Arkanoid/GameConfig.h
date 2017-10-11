@@ -26,8 +26,9 @@ namespace Arkanoid
       static constexpr float BrickWidth = 30;
       static constexpr float BrickHeight = 10;
 
-      static constexpr float BrickColumns = 20;
-      static constexpr float BrickRows = 5;
+      static constexpr unsigned int BoardColumns = 20;
+      static constexpr unsigned int BoardRows = 5;
+      static constexpr float BrickSpacing = 1;
 
    private:
       GameConfig() {}
