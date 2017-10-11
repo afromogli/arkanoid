@@ -25,7 +25,7 @@ namespace Arkanoid
 
    bool EPaddle::isColliding(const EBall& ball) const
    {
-      return ball.getRect().intersects(getRect());
+      return m_rect.intersects(ball.getRect());
    }
 
    void EPaddle::doBallCollision(EBall& ball) const

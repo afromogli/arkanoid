@@ -55,17 +55,21 @@ namespace Arkanoid
 
    void MainScene::update(const float& deltaTime)
    {
-      m_board.update(deltaTime);
+      m_board.update(*m_ball, deltaTime);
+
       for (auto entity : m_allEntities)
       {
          entity->update(deltaTime);
       }
-
-      // If ball has not been released from paddle yet, update ball position
+      
+      // If ball has not been released from paddle yet, set ball position above paddle
       if (m_ball->getVelocity().length() <= 0)
       {
          positionBallAbovePaddle();
       }
+
+      // TODO: fix proper paddle collision 
+      //m_paddle->doBallCollision(*m_ball);
    }
 
    void MainScene::draw(GraphicsSystem& graphics)

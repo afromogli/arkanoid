@@ -2,17 +2,18 @@
 
 #include "Brick.h"
 #include "GameConfig.h"
+#include "EBall.h"
 
 namespace Arkanoid
 {
-   class Board : public Object
+   class Board
    {
    public:
       Board(const Vector2f upperLeftPos);
       ~Board();
 
-      void update(const float& deltaTime) override;
-      void draw(GraphicsSystem& graphics) override;
+      void update(EBall& ball, const float deltaTime) const;
+      void draw(GraphicsSystem& graphics) const;
 
    private:
       Brick* m_bricks;
