@@ -20,19 +20,4 @@ namespace Arkanoid {
    {
       graphics.drawFilledCircle(getPosition(), GameConfig::BallDiameter, Colors::White);
    }
-
-   /*void EBall::incBallSpeed()
-   {
-      m_ballHits++;
-   }*/
-
-   void EBall::resetBallSpeed()
-   {
-      m_ballHits = 0;
-   }
-
-   float EBall::getCurrentSpeed() const
-   {
-      return GameConfig::BallSpeed + m_ballHits * GameConfig::BallSpeedIncPerHit;
-   }
 }

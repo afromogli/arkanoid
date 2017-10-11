@@ -13,7 +13,7 @@ namespace Arkanoid
       m_ball = std::dynamic_pointer_cast<EBall>(Engine::entityFactoryInstance->createEntity(EntityType::Ball));
       
       m_paddle->setPosition(GameConfig::InitialPlayerPaddlePosition);
-      respawnBall();
+      
 
       m_allEntities.push_back(m_paddle);
       m_allEntities.push_back(m_ball);
@@ -26,13 +26,31 @@ namespace Arkanoid
 
    void MainScene::handleInput(const Uint8 *state)
    {
-      /*if (state[SDL_SCANCODE_DOWN] && state[SDL_SCANCODE_UP])
+      if (state[SDL_SCANCODE_LEFT] && state[SDL_SCANCODE_RIGHT])
       {
-         setPaddleVelocity(m_rightPaddle, 0);
-      }*/
-
+         m_paddle->setVelocity(Vector2f::Zero);
+      }
+      else if (state[SDL_SCANCODE_LEFT])
+      {
+         m_paddle->setVelocity(Vector2f(-GameConfig::PaddleSpeed, 0));
+      }
+      else if (state[SDL_SCANCODE_RIGHT])
+      {
+         m_paddle->setVelocity(Vector2f(GameConfig::PaddleSpeed, 0));
+      }
+      else
+      {
+         m_paddle->setVelocity(Vector2f::Zero);
+      }
+      
+      if (state[SDL_SCANCODE_SPACE])
+      {
+         if (m_ball->getVelocity().length() <= 0)
+         {
+            respawnBall();
+         }
+      }
    }
-
    
 
    void MainScene::update(const float& deltaTime)
@@ -56,6 +74,7 @@ namespace Arkanoid
    void MainScene::respawnBall() const
    {
       m_ball->setPosition(m_paddle->getPosition() + Vector2f(GameConfig::PaddleSize.x / 2.f, -float(GameConfig::BallDiameter)));
+      m_ball->setVelocity(Vector2f(5, -GameConfig::BallSpeed));
    }
 }
 

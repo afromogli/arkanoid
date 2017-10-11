@@ -14,11 +14,6 @@ namespace Arkanoid {
       void update(const float& deltaTime) override;
       void draw(GraphicsSystem& graphics) override;
 
-      //void incBallSpeed();
-      void resetBallSpeed();
-
-      float getCurrentSpeed() const;
-
       static constexpr float Maxbounceangle = 15;
 
    private:

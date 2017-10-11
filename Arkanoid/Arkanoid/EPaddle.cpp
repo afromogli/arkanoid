@@ -35,7 +35,7 @@ namespace Arkanoid
       const float bounceAngle = normalizedRelativeIntersectionY * EBall::Maxbounceangle * static_cast<float>(PI) / 180.0f;
 
       //ball.incBallSpeed();
-      const float currentBallSpeed = ball.getCurrentSpeed();
+      const float currentBallSpeed = GameConfig::BallSpeed;
       float ballVx, ballVy;
       if (getPosition().x < GameConfig::WinSize.x / 2)
       {
