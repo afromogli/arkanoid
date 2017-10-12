@@ -29,7 +29,9 @@ namespace Arkanoid
 
    void Board::update(EBall& ball, const float deltaTime) const
    {
-      // TODO: Do collision detection
+      int closestBrickIndex = -1;
+      float closestBrickDistance = -1;
+      
       // Loop through all bricks and save closest collision if there is any
       for (int x = 0; x < GameConfig::BoardColumns; x++)
       {
@@ -38,12 +40,24 @@ namespace Arkanoid
             Brick& currBrick = m_bricks[y * GameConfig::BoardColumns + x];
             if (currBrick.isAlive() && currBrick.isColliding(ball))
             {
-               currBrick.doBallCollision(ball);
-               assert(currBrick.isAlive() == false);
+               const float distance = ball.getRect().getCenter().distanceTo(currBrick.getRect().getCenter());
+               if (closestBrickDistance == -1 || distance < closestBrickDistance)
+               {
+                  closestBrickDistance = distance;
+                  closestBrickIndex = y * GameConfig::BoardColumns + x;
+                  assert(closestBrickDistance > 0);
+               }
             }
          }
       }
-      // TODO: Only do collision with the closest brick and kill the brick which collided
+
+      // Only do collision with the closest brick
+      if (closestBrickIndex != -1)
+      {
+         Brick& closestBrick = m_bricks[closestBrickIndex];
+         closestBrick.doBallCollision(ball);
+         assert(closestBrick.isAlive() == false);
+      }
    }
 
    void Board::draw(GraphicsSystem& graphics) const

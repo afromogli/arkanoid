@@ -5,7 +5,7 @@
 
 namespace Arkanoid
 {
-   class Brick : Entity
+   class Brick : public Entity
    {
    public:
       Brick() = default;

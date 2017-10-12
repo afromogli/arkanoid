@@ -15,6 +15,7 @@ namespace Arkanoid
       // Main scene configuration
       static constexpr Vector2f PaddleSize = Vector2f(60, 30);
       static constexpr Vector2f InitialPlayerPaddlePosition = Vector2f(GameConfig::WinSize.x/2, GameConfig::WinSize.y-(PaddleSize.y + 10));
+      static constexpr float PaddleCooldown = 1000;
 
       static constexpr float BallSpeed = 250.0f;
       static constexpr float BallSpeedIncPerHit = 12.0f;
@@ -29,7 +30,7 @@ namespace Arkanoid
       static constexpr unsigned int BoardRows = 4;
       static constexpr float BrickSpacing = 4;
       static constexpr Vector2f BoardUpperLeftPos = Vector2f(60.f, 5.f);
-
+   
    private:
       GameConfig() {}
    };

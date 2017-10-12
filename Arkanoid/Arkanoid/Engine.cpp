@@ -3,6 +3,7 @@
 
 #include "Scene.h"
 #include <random>
+#include <SDL2/SDL.h>
 
 namespace Arkanoid {
    
@@ -42,7 +43,7 @@ namespace Arkanoid {
          }
 
          SDL_PumpEvents();
-         const Uint8 *state = const_cast <Uint8*>(SDL_GetKeyboardState(NULL));
+         const Uint8 *state = const_cast <Uint8*>(SDL_GetKeyboardState(nullptr));
          if (runApplication)
          {
             runApplication = state[SDL_SCANCODE_ESCAPE] == 0;

@@ -33,11 +33,11 @@ namespace Arkanoid {
          this->m_position = position;
       }
 
-      const int getWidth() const {
+      int getWidth() const {
          return m_width;
       }
 
-      const int getHeight() const {
+      int getHeight() const {
          return m_height;
       }
 
@@ -46,6 +46,8 @@ namespace Arkanoid {
          this->m_width = width;
          this->m_height = height;
       }
+
+      Vector2f getCenter() const;
 
    private:
       int m_width;

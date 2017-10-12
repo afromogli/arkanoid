@@ -1,6 +1,7 @@
 #include "MainScene.h"
 #include "Engine.h"
-
+#include <iostream>
+#include <SDL2/SDL.h>
 
 namespace Arkanoid
 {
@@ -48,6 +49,7 @@ namespace Arkanoid
          if (m_ball->getVelocity().length() <= 0)
          {
             m_ball->setVelocity(Vector2f(5, -GameConfig::BallSpeed));
+            m_paddleCooldown = GameConfig::PaddleCooldown;
          }
       }
    }
@@ -68,8 +70,17 @@ namespace Arkanoid
          positionBallAbovePaddle();
       }
 
-      // TODO: fix proper paddle collision 
-      //m_paddle->doBallCollision(*m_ball);
+      if (m_ball->getVelocity().length() > 0 && m_paddleCooldown <= 0 && m_paddle->isColliding(*m_ball))
+      {
+         m_paddle->doBallCollision(*m_ball);
+         m_paddleCooldown = GameConfig::PaddleCooldown;
+      }
+
+      if (m_paddleCooldown > 0)
+      {
+         m_paddleCooldown -= deltaTime;
+         cout << m_paddleCooldown << "\n";
+      }
    }
 
    void MainScene::draw(GraphicsSystem& graphics)

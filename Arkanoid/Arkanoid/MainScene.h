@@ -26,6 +26,8 @@ namespace Arkanoid
       shared_ptr<EPaddle> m_paddle;
       shared_ptr<EBall> m_ball;
 
+      float m_paddleCooldown; // Millisecs, for collisions
+
       GraphicsSystem& m_graphics;
       AudioSystem& m_audioSystem;
 

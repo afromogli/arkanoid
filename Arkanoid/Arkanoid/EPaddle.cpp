@@ -30,23 +30,14 @@ namespace Arkanoid
 
    void EPaddle::doBallCollision(EBall& ball) const
    {
-      const float relativeIntersectY = (getPosition().y + GameConfig::PaddleSize.y / 2) - ball.getPosition().y;
-      const float normalizedRelativeIntersectionY = (relativeIntersectY / (GameConfig::PaddleSize.y / 2));
-      const float bounceAngle = normalizedRelativeIntersectionY * EBall::Maxbounceangle * static_cast<float>(PI) / 180.0f;
+      const float relativeIntersectX = getRect().getCenter().x - ball.getPosition().x;
+      const float normalizedRelativeIntersectionX = (relativeIntersectX / (getRect().getWidth() / 2));
+      const float bounceAngle = normalizedRelativeIntersectionX * EBall::Maxbounceangle * float(PI) / 180.0f;
 
-      //ball.incBallSpeed();
       const float currentBallSpeed = GameConfig::BallSpeed;
-      float ballVx, ballVy;
-      if (getPosition().x < GameConfig::WinSize.x / 2)
-      {
-         ballVx = currentBallSpeed*cos(bounceAngle);
-         ballVy = currentBallSpeed*-sin(bounceAngle);
-      }
-      else
-      {
-         ballVx = currentBallSpeed*cos(bounceAngle)*-1;
-         ballVy = currentBallSpeed*sin(bounceAngle)*-1;
-      }
-      ball.setVelocity(Vector2f(ballVx, ballVy));
+      const float ballVy = currentBallSpeed*cos(bounceAngle)*-1;
+      const float ballVx = currentBallSpeed*sin(bounceAngle)*-1;
+
+      ball.setVelocity(Vector2f(ballVx, ballVy));       
    }
 }
