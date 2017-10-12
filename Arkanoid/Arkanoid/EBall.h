@@ -15,6 +15,7 @@ namespace Arkanoid {
       void draw(GraphicsSystem& graphics) override;
 
       static constexpr float Maxbounceangle = 15;
+      bool isMoving() const;
 
    private:
       EBall();

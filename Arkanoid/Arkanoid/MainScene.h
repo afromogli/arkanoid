@@ -33,8 +33,6 @@ namespace Arkanoid
       AudioSystem& m_audioSystem;
 
       void positionBallAbovePaddle() const;
-
-      bool ballIsMoving() const;
    };
 }
 

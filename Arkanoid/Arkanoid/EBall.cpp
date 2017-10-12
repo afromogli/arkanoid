@@ -1,12 +1,17 @@
 #include "EBall.h"
 #include "GameConfig.h"
 
-namespace Arkanoid {   
-   
+namespace Arkanoid {
 
+   
    EBall::EBall() : m_ballHits{0}
    {
       m_rect.setSize(GameConfig::BallDiameter, GameConfig::BallDiameter);
+   }
+
+   bool EBall::isMoving() const
+   {
+      return m_velocity.length() > 0;
    }
 
    void EBall::update(const float& deltaTime)

@@ -67,12 +67,12 @@ namespace Arkanoid
       m_board.update(ball, *m_paddle, deltaTime);
       
       // If ball has not been released from paddle yet, set ball position above paddle
-      if (ballIsMoving() == false)
+      if (ball.isMoving() == false)
       {
          positionBallAbovePaddle();
       }
 
-      if (ballIsMoving() && m_paddleCooldown <= 0 && m_paddle->isColliding(ball))
+      if (ball.isMoving() && m_paddleCooldown <= 0 && m_paddle->isColliding(ball))
       {
          m_paddle->doBallCollision(ball);
          m_paddleCooldown = GameConfig::PaddleCooldown;
@@ -98,11 +98,6 @@ namespace Arkanoid
    {
       m_ball->setPosition(m_paddle->getPosition() + Vector2f(GameConfig::PaddleSize.x / 2.f, -float(GameConfig::BallDiameter)));
       
-   }
-
-   bool MainScene::ballIsMoving() const
-   {
-      return m_ball->getVelocity().length() > 0;
    }
 }
 
