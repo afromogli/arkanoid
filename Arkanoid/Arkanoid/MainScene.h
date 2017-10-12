@@ -5,6 +5,7 @@
 #include "Entity.h"
 #include "Board.h"
 #include "EPaddle.h"
+#include "Walls.h"
 
 using namespace std;
 
@@ -22,9 +23,9 @@ namespace Arkanoid
    
    private:
       vector<shared_ptr<Entity>> m_allEntities;
-      Board m_board;
       shared_ptr<EPaddle> m_paddle;
       shared_ptr<EBall> m_ball;
+      Board m_board;
 
       float m_paddleCooldown; // Millisecs, for collisions
 
@@ -32,6 +33,8 @@ namespace Arkanoid
       AudioSystem& m_audioSystem;
 
       void positionBallAbovePaddle() const;
+
+      bool ballIsMoving() const;
    };
 }
 

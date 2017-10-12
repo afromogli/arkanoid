@@ -55,6 +55,9 @@
     <ClCompile Include="MainScene.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Walls.cpp">
+      <Filter>Source\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioSystem.h">
@@ -113,6 +116,9 @@
     </ClInclude>
     <ClInclude Include="MainScene.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Walls.h">
+      <Filter>Source\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

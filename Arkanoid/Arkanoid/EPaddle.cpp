@@ -20,7 +20,7 @@ namespace Arkanoid
 
    void EPaddle::draw(GraphicsSystem & graphics)
    {
-      graphics.drawFilledRoundedBox(m_rect, 2, Colors::DarkGrey);
+      graphics.drawFilledBox(m_rect, Colors::DarkGrey);
    }
 
    bool EPaddle::isColliding(const EBall& ball) const

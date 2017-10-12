@@ -57,29 +57,31 @@ namespace Arkanoid
 
    void MainScene::update(const float& deltaTime)
    {
-      m_board.update(*m_ball, deltaTime);
+      EBall& ball = *m_ball;
 
       for (auto entity : m_allEntities)
       {
          entity->update(deltaTime);
       }
+
+      m_board.update(ball, *m_paddle, deltaTime);
       
       // If ball has not been released from paddle yet, set ball position above paddle
-      if (m_ball->getVelocity().length() <= 0)
+      if (ballIsMoving() == false)
       {
          positionBallAbovePaddle();
       }
 
-      if (m_ball->getVelocity().length() > 0 && m_paddleCooldown <= 0 && m_paddle->isColliding(*m_ball))
+      if (ballIsMoving() && m_paddleCooldown <= 0 && m_paddle->isColliding(ball))
       {
-         m_paddle->doBallCollision(*m_ball);
+         m_paddle->doBallCollision(ball);
          m_paddleCooldown = GameConfig::PaddleCooldown;
       }
 
       if (m_paddleCooldown > 0)
       {
          m_paddleCooldown -= deltaTime;
-         cout << m_paddleCooldown << "\n";
+         //cout << m_paddleCooldown << "\n";
       }
    }
 
@@ -96,6 +98,11 @@ namespace Arkanoid
    {
       m_ball->setPosition(m_paddle->getPosition() + Vector2f(GameConfig::PaddleSize.x / 2.f, -float(GameConfig::BallDiameter)));
       
+   }
+
+   bool MainScene::ballIsMoving() const
+   {
+      return m_ball->getVelocity().length() > 0;
    }
 }
 

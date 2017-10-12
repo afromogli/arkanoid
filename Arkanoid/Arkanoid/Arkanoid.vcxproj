@@ -167,6 +167,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
     <ClCompile Include="Vector2.cpp" />
+    <ClCompile Include="Walls.cpp" />
     <ClCompile Include="xorshift.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -188,6 +189,7 @@
     <ClInclude Include="NotSupportedException.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Vector2.h" />
+    <ClInclude Include="Walls.h" />
     <ClInclude Include="xorshift.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
