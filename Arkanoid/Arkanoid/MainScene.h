@@ -5,7 +5,6 @@
 #include "Entity.h"
 #include "Board.h"
 #include "EPaddle.h"
-#include "Walls.h"
 
 using namespace std;
 
