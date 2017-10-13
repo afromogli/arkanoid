@@ -14,7 +14,8 @@ namespace Arkanoid
       Board(const Vector2f upperLeftPos);
       ~Board();
 
-      void update(EBall& ball, EPaddle& paddle, const float deltaTime);
+      void doBrickCollisions(EBall& ball) const;
+      Walls::BallCollisionResult doWallCollisions(EBall& ball, EPaddle& paddle) const;
       void draw(GraphicsSystem& graphics);
 
    private:

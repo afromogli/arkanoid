@@ -2,7 +2,7 @@
 
 namespace Arkanoid
 {
-   void Walls::doBallCollision(EBall& ball) const
+   Walls::BallCollisionResult Walls::doBallCollision(EBall& ball) const
    {
       const Rect2D& ballRect = ball.getRect();
       const Vector2f& currBallVel = ball.getVelocity();
@@ -19,6 +19,8 @@ namespace Arkanoid
       {
          ball.setVelocity(Vector2f(currBallVel.x*-1, currBallVel.y));
       }
+
+      return m_walls[1].intersects(ballRect) == true ? Outside : Inside;
    }
 
    void Walls::doPaddleCollision(EPaddle& paddle) const

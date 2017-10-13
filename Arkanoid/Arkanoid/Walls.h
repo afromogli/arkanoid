@@ -9,7 +9,8 @@ namespace Arkanoid
    class Walls : public Object
    {
    public:
-      void doBallCollision(EBall& ball) const;
+      enum BallCollisionResult { Inside = 1, Outside = 2};
+      BallCollisionResult doBallCollision(EBall& ball) const;
       void doPaddleCollision(EPaddle& paddle) const;
 
       void update(const float& deltaTime) override;

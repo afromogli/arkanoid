@@ -58,14 +58,23 @@ namespace Arkanoid
    void MainScene::update(const float& deltaTime)
    {
       EBall& ball = *m_ball;
+      EPaddle &paddle = *m_paddle;
 
       for (auto entity : m_allEntities)
       {
          entity->update(deltaTime);
       }
 
-      m_board.update(ball, *m_paddle, deltaTime);
-      
+      m_board.doBrickCollisions(ball);
+      const Walls::BallCollisionResult result = m_board.doWallCollisions(ball, paddle);
+      if (result == Walls::Outside)
+      {
+         // TODO: handle outside, show game over?
+         m_ball->setVelocity(Vector2f::Zero);
+         positionBallAbovePaddle();
+      }
+
+
       // If ball has not been released from paddle yet, set ball position above paddle
       if (ball.isMoving() == false)
       {
