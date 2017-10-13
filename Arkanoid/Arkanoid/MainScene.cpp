@@ -18,6 +18,9 @@ namespace Arkanoid
 
       m_allEntities.push_back(m_paddle);
       m_allEntities.push_back(m_ball);
+
+      m_brickSound = audioSystem.createAndLoadAudioClip("Sounds\\arkbrick.wav");
+      m_paddleSound = audioSystem.createAndLoadAudioClip("Sounds\\arkpad.wav");
    }
 
    MainScene::~MainScene()
@@ -65,13 +68,20 @@ namespace Arkanoid
          entity->update(deltaTime);
       }
 
-      m_board.doBrickCollisions(ball);
-      const Walls::BallCollisionResult result = m_board.doWallCollisions(ball, paddle);
-      if (result == Walls::Outside)
+      if (m_board.doBrickCollisions(ball))
+      {
+         m_brickSound->play();
+      }
+      const auto result = m_board.doWallCollisions(ball, paddle);
+      if (result == Walls::OutsideBoard)
       {
          // TODO: handle outside, show game over?
          m_ball->setVelocity(Vector2f::Zero);
          positionBallAbovePaddle();
+      }
+      else if (result == Walls::Wall)
+      {
+         m_paddleSound->play();
       }
 
 
@@ -84,6 +94,7 @@ namespace Arkanoid
       if (ball.isMoving() && m_paddleCooldown <= 0 && m_paddle->isColliding(ball))
       {
          m_paddle->doBallCollision(ball);
+         m_paddleSound->play();
          m_paddleCooldown = GameConfig::PaddleCooldown;
       }
 

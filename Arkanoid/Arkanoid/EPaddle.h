@@ -19,6 +19,7 @@ namespace Arkanoid
       void doBallCollision(EBall& ball) const;
    private:
       EPaddle();
+
    };
 }
 

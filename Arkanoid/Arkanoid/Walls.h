@@ -9,7 +9,7 @@ namespace Arkanoid
    class Walls : public Object
    {
    public:
-      enum BallCollisionResult { Inside = 1, Outside = 2};
+      enum BallCollisionResult { None, Wall = 1, OutsideBoard = 2};
       BallCollisionResult doBallCollision(EBall& ball) const;
       void doPaddleCollision(EPaddle& paddle) const;
 

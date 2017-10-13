@@ -27,7 +27,7 @@ namespace Arkanoid
       m_bricks = nullptr;
    }
 
-   void Board::doBrickCollisions(EBall& ball) const
+   bool Board::doBrickCollisions(EBall& ball) const
    {
       int closestBrickIndex = -1;
       float closestBrickDistance = -1;
@@ -57,7 +57,9 @@ namespace Arkanoid
          Brick& closestBrick = m_bricks[closestBrickIndex];
          closestBrick.doBallCollision(ball);
          assert(closestBrick.isAlive() == false);
+         return true;
       }
+      return false;
    }
 
    Walls::BallCollisionResult Board::doWallCollisions(EBall& ball, EPaddle& paddle) const

@@ -32,6 +32,9 @@ namespace Arkanoid
       AudioSystem& m_audioSystem;
 
       void positionBallAbovePaddle() const;
+
+      shared_ptr<AudioClip> m_brickSound;
+      shared_ptr<AudioClip> m_paddleSound;
    };
 }
 

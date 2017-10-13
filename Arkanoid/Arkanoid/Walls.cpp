@@ -6,11 +6,17 @@ namespace Arkanoid
    {
       const Rect2D& ballRect = ball.getRect();
       const Vector2f& currBallVel = ball.getVelocity();
+      BallCollisionResult result = None;
       // Upper
       // Bottom
       if (m_walls[0].intersects(ballRect) || m_walls[1].intersects(ballRect))
       {
          ball.setVelocity(Vector2f(currBallVel.x, currBallVel.y*-1));
+         result = Wall;
+         if (m_walls[1].intersects(ballRect))
+         {
+            result = OutsideBoard;
+         }
       }
       
       // Left
@@ -18,9 +24,10 @@ namespace Arkanoid
       else if (m_walls[2].intersects(ballRect) || m_walls[3].intersects(ballRect))
       {
          ball.setVelocity(Vector2f(currBallVel.x*-1, currBallVel.y));
+         result = Wall;         
       }
 
-      return m_walls[1].intersects(ballRect) == true ? Outside : Inside;
+      return result;
    }
 
    void Walls::doPaddleCollision(EPaddle& paddle) const

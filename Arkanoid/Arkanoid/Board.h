@@ -5,6 +5,7 @@
 #include "EBall.h"
 #include "Walls.h"
 #include "EPaddle.h"
+#include "AudioSystem.h"
 
 namespace Arkanoid
 {
@@ -14,7 +15,7 @@ namespace Arkanoid
       Board(const Vector2f upperLeftPos);
       ~Board();
 
-      void doBrickCollisions(EBall& ball) const;
+      bool doBrickCollisions(EBall& ball) const;
       Walls::BallCollisionResult doWallCollisions(EBall& ball, EPaddle& paddle) const;
       void draw(GraphicsSystem& graphics);
 
