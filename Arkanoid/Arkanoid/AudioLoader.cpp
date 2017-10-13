@@ -1,4 +1,4 @@
-#include "AudioSystem.h"
+#include "AudioLoader.h"
 #include <SDL2\SDL.h>
 #include <SDL_mixer.h>
 
@@ -18,7 +18,7 @@ namespace Arkanoid
       Mix_FreeChunk(m_mixChunk);
    }
 
-   AudioSystem::~AudioSystem()
+   AudioLoader::~AudioLoader()
    {
       for (auto clip : m_clips)
       {
@@ -26,7 +26,7 @@ namespace Arkanoid
       }
    }
 
-   bool AudioSystem::init()
+   bool AudioLoader::init()
    {
       //Initialize SDL_mixer
       if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1)
@@ -36,7 +36,7 @@ namespace Arkanoid
       return true;
    }
 
-   std::shared_ptr<AudioClip> AudioSystem::createAndLoadAudioClip(const std::string filePath)
+   std::shared_ptr<AudioClip> AudioLoader::createAndLoadAudioClip(const std::string filePath)
    {
       std::shared_ptr<AudioClip> newClip = std::shared_ptr<AudioClip>(new AudioClip());
       newClip->load(filePath);

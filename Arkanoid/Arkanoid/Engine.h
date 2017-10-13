@@ -2,10 +2,10 @@
 
 #include <memory>
 
-#include "GraphicsSystem.h"
+#include "Graphics.h"
 #include "EntityFactory.h"
 #include "Scene.h"
-#include "AudioSystem.h"
+#include "AudioLoader.h"
 
 using namespace std;
 
@@ -21,16 +21,16 @@ namespace Arkanoid {
 
       static shared_ptr<EntityFactory> entityFactoryInstance;
 
-      inline GraphicsSystem& getGraphics() {
+      inline Graphics& getGraphics() {
          return m_graphicsSystem;
       }
 
-      inline AudioSystem& getAudioSystem() {
-         return m_audioSystem;
+      inline AudioLoader& getAudioLoader() {
+         return m_audioLoader;
       }
    private:
-      GraphicsSystem m_graphicsSystem;
-      AudioSystem m_audioSystem;
+      Graphics m_graphicsSystem;
+      AudioLoader m_audioLoader;
       shared_ptr<Scene> m_currentScene;
    };
 }

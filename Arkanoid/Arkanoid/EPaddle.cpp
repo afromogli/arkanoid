@@ -18,7 +18,7 @@ namespace Arkanoid
       }
    }
 
-   void EPaddle::draw(GraphicsSystem & graphics)
+   void EPaddle::draw(Graphics & graphics)
    {
       graphics.drawFilledBox(m_rect, Colors::DarkGrey);
    }

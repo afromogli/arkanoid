@@ -9,6 +9,11 @@ namespace Arkanoid
    class AudioClip
    {
    public:
+      explicit AudioClip()
+         : m_mixChunk(nullptr)
+      {
+      }
+
       void play();
 
       void load(const std::string filePath);
@@ -18,10 +23,10 @@ namespace Arkanoid
       Mix_Chunk *m_mixChunk;
    };
 
-   class AudioSystem
+   class AudioLoader
    {
    public:
-      ~AudioSystem();
+      ~AudioLoader();
 
       bool init();
 

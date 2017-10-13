@@ -48,7 +48,7 @@ namespace Arkanoid
    {
    }
 
-   void Walls::draw(GraphicsSystem& graphics)
+   void Walls::draw(Graphics& graphics)
    {
       for (const Rect2D wall : m_walls)
       {

@@ -16,9 +16,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AudioSystem.cpp">
-      <Filter>Source\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="EBall.cpp">
       <Filter>Source\Entities</Filter>
     </ClCompile>
@@ -27,9 +24,6 @@
     </ClCompile>
     <ClCompile Include="EntityFactory.cpp">
       <Filter>Source\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsSystem.cpp">
-      <Filter>Source\Engine</Filter>
     </ClCompile>
     <ClCompile Include="Rect2d.cpp">
       <Filter>Source\Engine</Filter>
@@ -58,11 +52,17 @@
     <ClCompile Include="Walls.cpp">
       <Filter>Source\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="StartScene.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioLoader.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioSystem.h">
-      <Filter>Source\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="EBall.h">
       <Filter>Source\Entities</Filter>
     </ClInclude>
@@ -74,9 +74,6 @@
     </ClInclude>
     <ClInclude Include="EntityFactory.h">
       <Filter>Source\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsSystem.h">
-      <Filter>Source\Engine</Filter>
     </ClInclude>
     <ClInclude Include="NotImplementedException.h">
       <Filter>Source\Engine</Filter>
@@ -119,6 +116,15 @@
     </ClInclude>
     <ClInclude Include="Walls.h">
       <Filter>Source\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="StartSCene.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioLoader.h">
+      <Filter>Source\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Source\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

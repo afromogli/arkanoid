@@ -13,7 +13,7 @@ namespace Arkanoid
    {
    }
 
-   void Brick::draw(GraphicsSystem& graphics)
+   void Brick::draw(Graphics& graphics)
    {
       if (m_isAlive)
       {

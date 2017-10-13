@@ -9,7 +9,7 @@ using namespace Arkanoid;
 int main(int argc, char* args[])
 {   
    unique_ptr<Engine> engine = std::make_unique<Engine>();
-   const shared_ptr<MainScene> mainScene = std::make_shared<MainScene>(engine->getGraphics(), engine->getAudioSystem());
+   const shared_ptr<MainScene> mainScene = std::make_shared<MainScene>(engine->getGraphics(), engine->getAudioLoader());
    engine->setScene(mainScene);
    engine->run();
 

@@ -21,7 +21,7 @@ namespace Arkanoid {
       setPosition(nextPosition);
    }
 
-   void EBall::draw(GraphicsSystem& graphics)
+   void EBall::draw(Graphics& graphics)
    {
       graphics.drawFilledCircle(getPosition(), GameConfig::BallDiameter, Colors::White);
    }

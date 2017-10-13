@@ -14,7 +14,7 @@ namespace Arkanoid
       friend class EntityFactory;
    public:
       void update(const float& deltaTime) override;
-      void draw(GraphicsSystem& graphics) override;
+      void draw(Graphics& graphics) override;
       bool isColliding(const EBall& ball) const;
       void doBallCollision(EBall& ball) const;
    private:

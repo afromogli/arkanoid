@@ -1,6 +1,7 @@
 #pragma once
 
-#include "GraphicsSystem.h"
+#include "Graphics.h"
+#include <SDL2/SDL_hints.h>
 
 namespace Arkanoid {
    class Scene
@@ -11,6 +12,6 @@ namespace Arkanoid {
 
       virtual void handleInput(const Uint8 *keyboardState) = 0;
       virtual void update(const float& deltaTime) = 0;
-      virtual void draw(GraphicsSystem& graphics) = 0;
+      virtual void draw(Graphics& graphics) = 0;
    };
 }

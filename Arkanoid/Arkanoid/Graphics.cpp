@@ -1,4 +1,4 @@
-#include "GraphicsSystem.h"
+#include "Graphics.h"
 
 #include <iostream>
 #include <assert.h>
@@ -7,14 +7,14 @@
 #include <SDL2_gfxPrimitives.h>
 
 namespace Arkanoid {
-   GraphicsSystem::GraphicsSystem(const int& xWinPosition, const int& yWinPosition, const int& width, const int& height)
+   Graphics::Graphics(const int& xWinPosition, const int& yWinPosition, const int& width, const int& height)
    {
       this->m_windowRect = { xWinPosition, yWinPosition, width, height };
 
       assert(this->initEverything());
    }
 
-   GraphicsSystem::~GraphicsSystem()
+   Graphics::~Graphics()
    {
       TTF_Quit();
       SDL_DestroyRenderer(m_renderer);
@@ -22,20 +22,20 @@ namespace Arkanoid {
       SDL_Quit();
    }
 
-   void GraphicsSystem::startFrame() const
+   void Graphics::startFrame() const
    {
       // Clear the window and make it all black
       SDL_SetRenderDrawColor(this->m_renderer, 0x00, 0x00, 0x00, 0x00);
       SDL_RenderClear(this->m_renderer);
    }
 
-   void GraphicsSystem::endFrame() const
+   void Graphics::endFrame() const
    {
       // Render the changes above
       SDL_RenderPresent(this->m_renderer);
    }
 
-   bool GraphicsSystem::initEverything()
+   bool Graphics::initEverything()
    {
       if (!initSDL())
          return false;
@@ -51,7 +51,7 @@ namespace Arkanoid {
       return true;
    }
 
-   bool GraphicsSystem::initSDL()
+   bool Graphics::initSDL()
    {
       if (SDL_Init(SDL_INIT_EVERYTHING) == -1)
       {
@@ -62,7 +62,7 @@ namespace Arkanoid {
       return true;
    }
 
-   bool GraphicsSystem::createWindow()
+   bool Graphics::createWindow()
    {
       //window = SDL_CreateWindow( "Server", posX, posY, sizeX, sizeY, 0 );
       this->m_window = SDL_CreateWindow("Arkanoid", this->m_windowRect.x, this->m_windowRect.y, this->m_windowRect.w, this->m_windowRect.h, 0);
@@ -76,7 +76,7 @@ namespace Arkanoid {
       return true;
    }
 
-   bool GraphicsSystem::createRenderer()
+   bool Graphics::createRenderer()
    {
       this->m_renderer = SDL_CreateRenderer(this->m_window, -1, 0);
 
@@ -89,7 +89,7 @@ namespace Arkanoid {
       return true;
    }
 
-   void GraphicsSystem::setupRenderer() const
+   void Graphics::setupRenderer() const
    {
       TTF_Init();
 
@@ -100,12 +100,12 @@ namespace Arkanoid {
       SDL_SetRenderDrawColor(this->m_renderer, 0, 0, 0, 255);
    }
 
-   SDL_Renderer * GraphicsSystem::getRenderer() const
+   SDL_Renderer * Graphics::getRenderer() const
    {
       return m_renderer;
    }
 
-   SDL_Texture* GraphicsSystem::loadTexture(const std::string &str) const
+   SDL_Texture* Graphics::loadTexture(const std::string &str) const
    {
       // Load image as SDL_Surface
       SDL_Surface* surface = SDL_LoadBMP(str.c_str());
@@ -120,19 +120,19 @@ namespace Arkanoid {
       return texture;
    }
 
-   void GraphicsSystem::drawFilledCircle(const Vector2f position, const int diameter, const Color color) const
+   void Graphics::drawFilledCircle(const Vector2f position, const int diameter, const Color color) const
    {
       filledCircleRGBA(m_renderer, Sint16(position.x), Sint16(position.y), diameter, color.R, color.G, color.B, color.A);
    }
 
-   void GraphicsSystem::drawFilledRoundedBox(const Rect2D rect, const int borderRadius, const Color color) const
+   void Graphics::drawFilledRoundedBox(const Rect2D rect, const int borderRadius, const Color color) const
    {
       roundedBoxRGBA(m_renderer, Sint16(rect.getPosition().x), Sint16(rect.getPosition().y), 
          Sint16(rect.getPosition().x + rect.getWidth()), Sint16(rect.getPosition().y + rect.getHeight()),
          borderRadius, color.R, color.G, color.B, color.A);
    }
 
-   void GraphicsSystem::drawFilledBox(const Rect2D rect, const Color color) const
+   void Graphics::drawFilledBox(const Rect2D rect, const Color color) const
    {
       boxRGBA(m_renderer, Sint16(rect.getPosition().x), Sint16(rect.getPosition().y),
          Sint16(rect.getPosition().x + rect.getWidth()), Sint16(rect.getPosition().y + rect.getHeight()),

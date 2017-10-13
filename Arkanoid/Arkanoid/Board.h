@@ -5,7 +5,7 @@
 #include "EBall.h"
 #include "Walls.h"
 #include "EPaddle.h"
-#include "AudioSystem.h"
+#include "AudioLoader.h"
 
 namespace Arkanoid
 {
@@ -17,7 +17,7 @@ namespace Arkanoid
 
       bool doBrickCollisions(EBall& ball) const;
       Walls::BallCollisionResult doWallCollisions(EBall& ball, EPaddle& paddle) const;
-      void draw(GraphicsSystem& graphics);
+      void draw(Graphics& graphics);
 
    private:
       Brick* m_bricks;

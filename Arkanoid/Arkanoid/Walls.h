@@ -14,7 +14,7 @@ namespace Arkanoid
       void doPaddleCollision(EPaddle& paddle) const;
 
       void update(const float& deltaTime) override;
-      void draw(GraphicsSystem& graphics) override;
+      void draw(Graphics& graphics) override;
 
    private:
       Rect2D m_walls[4] = {

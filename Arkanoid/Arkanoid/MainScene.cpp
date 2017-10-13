@@ -5,7 +5,7 @@
 
 namespace Arkanoid
 {
-   MainScene::MainScene(GraphicsSystem& graphics, AudioSystem& audioSystem) : 
+   MainScene::MainScene(Graphics& graphics, AudioLoader& audioSystem) : 
       m_board{ GameConfig::BoardUpperLeftPos }, 
       m_graphics{ graphics }, 
       m_audioSystem{ audioSystem }
@@ -105,7 +105,7 @@ namespace Arkanoid
       }
    }
 
-   void MainScene::draw(GraphicsSystem& graphics)
+   void MainScene::draw(Graphics& graphics)
    {
       m_board.draw(graphics);
       for (auto entity : m_allEntities)

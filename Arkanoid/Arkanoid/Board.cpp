@@ -68,7 +68,7 @@ namespace Arkanoid
       return m_walls.doBallCollision(ball);
    }
 
-   void Board::draw(GraphicsSystem& graphics)
+   void Board::draw(Graphics& graphics)
    {
       m_walls.draw(graphics);
 

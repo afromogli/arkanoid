@@ -155,7 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AudioSystem.cpp" />
+    <ClCompile Include="AudioLoader.cpp" />
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="Rect2d.cpp" />
     <ClCompile Include="Brick.cpp" />
@@ -163,15 +163,16 @@
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="EPaddle.cpp" />
-    <ClCompile Include="GraphicsSystem.cpp" />
+    <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainScene.cpp" />
+    <ClCompile Include="StartScene.cpp" />
     <ClCompile Include="Vector2.cpp" />
     <ClCompile Include="Walls.cpp" />
     <ClCompile Include="xorshift.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioSystem.h" />
+    <ClInclude Include="AudioLoader.h" />
     <ClInclude Include="Board.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Rect2d.h" />
@@ -182,12 +183,13 @@
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="EPaddle.h" />
     <ClInclude Include="GameConfig.h" />
-    <ClInclude Include="GraphicsSystem.h" />
+    <ClInclude Include="Graphics.h" />
     <ClInclude Include="MainScene.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="NotImplementedException.h" />
     <ClInclude Include="NotSupportedException.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="StartSCene.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Walls.h" />
     <ClInclude Include="xorshift.h" />

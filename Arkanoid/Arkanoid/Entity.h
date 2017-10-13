@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Vector2.h"
-#include "GraphicsSystem.h"
+#include "Graphics.h"
 #include "Rect2d.h"
 
 using namespace std;
@@ -13,7 +13,7 @@ namespace Arkanoid {
    public:
       virtual ~Object() = default;
       virtual void update(const float& deltaTime) = 0;
-      virtual void draw(GraphicsSystem& graphics) = 0;
+      virtual void draw(Graphics& graphics) = 0;
    };
 
    // Abstract base entity class

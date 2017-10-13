@@ -11,7 +11,7 @@ namespace Arkanoid
       Brick() = default;
       Brick(const Rect2D rect, const Color color);
       void update(const float& deltaTime) override;
-      void draw(GraphicsSystem& graphics) override;
+      void draw(Graphics& graphics) override;
 
       bool isColliding(const EBall& ball) const;
       void doBallCollision(EBall& ball);

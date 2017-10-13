@@ -9,13 +9,13 @@ namespace Arkanoid {
    
    shared_ptr<EntityFactory> Engine::entityFactoryInstance = shared_ptr<EntityFactory>(nullptr);
 
-   Engine::Engine() : m_graphicsSystem{ GraphicsSystem(int(GameConfig::WinInitPos.x), int(GameConfig::WinInitPos.y), int(GameConfig::WinSize.x), int(GameConfig::WinSize.y)) }, 
+   Engine::Engine() : m_graphicsSystem{ Graphics(int(GameConfig::WinInitPos.x), int(GameConfig::WinInitPos.y), int(GameConfig::WinSize.x), int(GameConfig::WinSize.y)) }, 
       m_currentScene{ shared_ptr<Scene>(nullptr) }
    {
       if (entityFactoryInstance == nullptr) {
          entityFactoryInstance = std::make_unique<EntityFactory>(m_graphicsSystem);
       }
-      if (m_audioSystem.init() == false)
+      if (m_audioLoader.init() == false)
       {
          throw exception("Could not initialize audio.");
       }

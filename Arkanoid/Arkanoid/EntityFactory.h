@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include "GraphicsSystem.h"
+#include "Graphics.h"
 #include "Entity.h"
 
 using namespace std;
@@ -13,7 +13,7 @@ namespace Arkanoid
    class EntityFactory
    {
    public:
-      EntityFactory(GraphicsSystem& graphicsSystem) : 
+      EntityFactory(Graphics& graphicsSystem) : 
          m_graphicsSystem{graphicsSystem}
       {
       }
@@ -23,7 +23,7 @@ namespace Arkanoid
       static shared_ptr<Entity> createBallEntity();
       static shared_ptr<Entity> createPaddleEntity();
 
-      GraphicsSystem& m_graphicsSystem;
+      Graphics& m_graphicsSystem;
    };
 }
 

@@ -8,10 +8,10 @@
 using namespace std;
 
 namespace Arkanoid {
-   class GraphicsSystem {
+   class Graphics {
    public:
-      GraphicsSystem(const int& xWinPosition, const int& yWinPosition, const int& width, const int& height);
-      ~GraphicsSystem();
+      Graphics(const int& xWinPosition, const int& yWinPosition, const int& width, const int& height);
+      ~Graphics();
 
       void startFrame() const;
       void endFrame() const;
