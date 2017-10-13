@@ -21,15 +21,15 @@ namespace Arkanoid {
 
       static shared_ptr<EntityFactory> entityFactoryInstance;
 
-      inline Graphics& getGraphics() {
-         return m_graphicsSystem;
+      Graphics& getGraphics() {
+         return m_graphics;
       }
 
-      inline AudioLoader& getAudioLoader() {
+      AudioLoader& getAudioLoader() {
          return m_audioLoader;
       }
    private:
-      Graphics m_graphicsSystem;
+      Graphics m_graphics;
       AudioLoader m_audioLoader;
       shared_ptr<Scene> m_currentScene;
    };

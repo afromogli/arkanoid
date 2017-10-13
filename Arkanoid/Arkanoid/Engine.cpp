@@ -9,11 +9,11 @@ namespace Arkanoid {
    
    shared_ptr<EntityFactory> Engine::entityFactoryInstance = shared_ptr<EntityFactory>(nullptr);
 
-   Engine::Engine() : m_graphicsSystem{ Graphics(int(GameConfig::WinInitPos.x), int(GameConfig::WinInitPos.y), int(GameConfig::WinSize.x), int(GameConfig::WinSize.y)) }, 
+   Engine::Engine() : m_graphics{ Graphics(int(GameConfig::WinInitPos.x), int(GameConfig::WinInitPos.y), int(GameConfig::WinSize.x), int(GameConfig::WinSize.y)) }, 
       m_currentScene{ shared_ptr<Scene>(nullptr) }
    {
       if (entityFactoryInstance == nullptr) {
-         entityFactoryInstance = std::make_unique<EntityFactory>(m_graphicsSystem);
+         entityFactoryInstance = std::make_unique<EntityFactory>(m_graphics);
       }
       if (m_audioLoader.init() == false)
       {
@@ -57,9 +57,9 @@ namespace Arkanoid {
             lag -= static_cast<Uint64>(GameConfig::MsPerUpdate);
          }
          
-         m_graphicsSystem.startFrame();
-         m_currentScene->draw(m_graphicsSystem);
-         m_graphicsSystem.endFrame();
+         m_graphics.startFrame();
+         m_currentScene->draw(m_graphics);
+         m_graphics.endFrame();
 
          // Add a 16msec delay to make our game run at ~60 fps
          SDL_Delay(16);

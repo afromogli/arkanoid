@@ -13,8 +13,8 @@ namespace Arkanoid
    class EntityFactory
    {
    public:
-      EntityFactory(Graphics& graphicsSystem) : 
-         m_graphicsSystem{graphicsSystem}
+      EntityFactory(Graphics& graphics) : 
+         m_graphics{graphics}
       {
       }
       shared_ptr<Entity> createEntity(const EntityType &type) const;
@@ -23,7 +23,7 @@ namespace Arkanoid
       static shared_ptr<Entity> createBallEntity();
       static shared_ptr<Entity> createPaddleEntity();
 
-      Graphics& m_graphicsSystem;
+      Graphics& m_graphics;
    };
 }
 
