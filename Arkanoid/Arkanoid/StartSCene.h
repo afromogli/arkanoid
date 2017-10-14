@@ -10,4 +10,4 @@ namespace Arkanoid
       void update(const float& deltaTime) override;
       void draw(Graphics& graphics) override;
    };
-}
+} 

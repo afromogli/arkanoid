@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Graphics.h"
-#include <SDL2/SDL_hints.h>
 
 namespace Arkanoid {
    class Scene

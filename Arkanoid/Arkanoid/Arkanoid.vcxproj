@@ -189,7 +189,7 @@
     <ClInclude Include="NotImplementedException.h" />
     <ClInclude Include="NotSupportedException.h" />
     <ClInclude Include="Scene.h" />
-    <ClInclude Include="StartSCene.h" />
+    <ClInclude Include="StartScene.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Walls.h" />
     <ClInclude Include="xorshift.h" />

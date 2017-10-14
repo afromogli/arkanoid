@@ -1,4 +1,4 @@
-#include "StartSCene.h"
+#include "StartScene.h"
 
 namespace Arkanoid
 {

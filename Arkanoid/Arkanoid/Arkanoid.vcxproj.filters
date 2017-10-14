@@ -117,14 +117,14 @@
     <ClInclude Include="Walls.h">
       <Filter>Source\Entities</Filter>
     </ClInclude>
-    <ClInclude Include="StartSCene.h">
-      <Filter>Source</Filter>
-    </ClInclude>
     <ClInclude Include="AudioLoader.h">
       <Filter>Source\Engine</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
       <Filter>Source\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="StartScene.h">
+      <Filter>Source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
