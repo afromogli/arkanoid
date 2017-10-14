@@ -3,15 +3,15 @@
 
 namespace Arkanoid
 {
-   Text::Text(const string text, const Color color, const Vector2f position, const int fontSizeX,
-      const int fontSizeY, Font& font, Graphics& graphics) : m_texture{ nullptr }, m_font{ font }, m_graphics{ graphics }
+   Text::Text(const string text, const Color color, const Vector2f position, const int totalTextWidth,
+      const int totalTextHeight, Font& font, Graphics& graphics) : m_texture{ nullptr }, m_font{ font }, m_graphics{ graphics }
    {
       m_text = text;
       m_color = color;
       m_rect.x = int(position.x);
       m_rect.y = int(position.y);
-      m_rect.w = fontSizeX;
-      m_rect.h = fontSizeY;
+      m_rect.w = totalTextWidth;
+      m_rect.h = totalTextHeight;
       m_graphics = graphics;
 
       m_texture = createTexture(graphics, m_font, m_text, m_color);

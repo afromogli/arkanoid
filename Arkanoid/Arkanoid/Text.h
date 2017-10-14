@@ -8,7 +8,7 @@ namespace Arkanoid
    class Text : public Object
    {
    public:
-      Text(const string text, const Color color, const Vector2f position, const int fontSizeX, const int fontSizeY, Font& font, Graphics& graphics);
+      Text(const string text, const Color color, const Vector2f position, const int totalTextWidth, const int totalTextHeight, Font& font, Graphics& graphics);
       ~Text();
 
       void update(const float& deltaTime) override;
