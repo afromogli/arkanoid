@@ -2,16 +2,16 @@
 
 #include "Engine.h"
 #include "MainScene.h"
+#include "StartScene.h"
 
 using namespace Arkanoid;
 
 
 int main(int argc, char* args[])
-{   
-   unique_ptr<Engine> engine = std::make_unique<Engine>();
-   const shared_ptr<MainScene> mainScene = std::make_shared<MainScene>(engine->getGraphics(), engine->getAudioLoader());
-   engine->setScene(mainScene);
+{
+   auto engine = Engine::getInstance();
+   const auto startScene = std::make_shared<StartScene>(engine->getGraphics());
+   engine->setScene(startScene);
    engine->run();
-
    return 0;
 }

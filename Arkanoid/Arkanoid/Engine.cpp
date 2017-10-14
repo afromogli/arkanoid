@@ -8,6 +8,16 @@
 namespace Arkanoid {
    
    shared_ptr<EntityFactory> Engine::entityFactoryInstance = shared_ptr<EntityFactory>(nullptr);
+   shared_ptr<Engine> Engine::s_instance = shared_ptr<Engine>(nullptr);
+   
+   shared_ptr<Engine> Engine::getInstance()
+   {
+      if (s_instance == nullptr)
+      {
+         s_instance = shared_ptr<Engine>(new Engine());
+      }
+      return s_instance;
+   }
 
    Engine::Engine() : m_graphics{ Graphics(int(GameConfig::WinInitPos.x), int(GameConfig::WinInitPos.y), int(GameConfig::WinSize.x), int(GameConfig::WinSize.y)) }, 
       m_currentScene{ shared_ptr<Scene>(nullptr) }

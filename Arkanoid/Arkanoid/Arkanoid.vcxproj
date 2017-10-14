@@ -202,6 +202,9 @@
     <Media Include="Sounds\arkbrick.wav" />
     <Media Include="Sounds\arkpad.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\iomanoid.ttf" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

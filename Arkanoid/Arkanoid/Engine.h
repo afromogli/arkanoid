@@ -15,7 +15,6 @@ namespace Arkanoid {
 
    class Engine { 
    public:
-      Engine();
       void run();
       void setScene(shared_ptr<Scene> newScene);
 
@@ -28,7 +27,12 @@ namespace Arkanoid {
       AudioLoader& getAudioLoader() {
          return m_audioLoader;
       }
+
+      static shared_ptr<Engine> getInstance();
    private:
+      Engine();
+
+      static shared_ptr<Engine> s_instance;
       Graphics m_graphics;
       AudioLoader m_audioLoader;
       shared_ptr<Scene> m_currentScene;
