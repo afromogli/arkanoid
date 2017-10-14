@@ -61,6 +61,12 @@
     <ClCompile Include="Graphics.cpp">
       <Filter>Source\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EBall.h">
@@ -125,6 +131,12 @@
     </ClInclude>
     <ClInclude Include="StartScene.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Source\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Source\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
