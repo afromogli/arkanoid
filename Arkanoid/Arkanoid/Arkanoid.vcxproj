@@ -201,6 +201,8 @@
   <ItemGroup>
     <Media Include="Sounds\arkbrick.wav" />
     <Media Include="Sounds\arkpad.wav" />
+    <Media Include="Sounds\gameover.wav" />
+    <Media Include="Sounds\win.wav" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Fonts\iomanoid.ttf" />

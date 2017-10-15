@@ -15,12 +15,14 @@ namespace Arkanoid
       }
 
       void play();
+      void stop();
 
       void load(const std::string filePath);
-      void freeMem();
+      void freeMem() const;
 
    private:
       Mix_Chunk *m_mixChunk;
+      int m_usedChannel = -1;
    };
 
    class AudioLoader

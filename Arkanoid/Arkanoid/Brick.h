@@ -17,6 +17,7 @@ namespace Arkanoid
       void doBallCollision(EBall& ball);
 
       bool isAlive() const;
+      void setIsAlive();
    private:
       Color m_color;
       bool m_isAlive = true;

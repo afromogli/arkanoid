@@ -7,7 +7,7 @@
 
 namespace Arkanoid {
    
-   shared_ptr<EntityFactory> Engine::entityFactoryInstance = shared_ptr<EntityFactory>(nullptr);
+   shared_ptr<EntityFactory> Engine::EntityFactoryInstance = shared_ptr<EntityFactory>(nullptr);
    shared_ptr<Engine> Engine::s_instance = shared_ptr<Engine>(nullptr);
    
    shared_ptr<Engine> Engine::getInstance()
@@ -22,8 +22,8 @@ namespace Arkanoid {
    Engine::Engine() : m_graphics{ Graphics(int(GameConfig::WinInitPos.x), int(GameConfig::WinInitPos.y), int(GameConfig::WinSize.x), int(GameConfig::WinSize.y)) }, 
       m_currentScene{ shared_ptr<Scene>(nullptr) }
    {
-      if (entityFactoryInstance == nullptr) {
-         entityFactoryInstance = std::make_unique<EntityFactory>(m_graphics);
+      if (EntityFactoryInstance == nullptr) {
+         EntityFactoryInstance = std::make_unique<EntityFactory>(m_graphics);
       }
       if (m_audioLoader.init() == false)
       {

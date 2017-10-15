@@ -6,14 +6,23 @@ namespace Arkanoid
 {
    void AudioClip::play()
    {
-      Mix_PlayChannel(-1, m_mixChunk, 0);
+      m_usedChannel = Mix_PlayChannel(-1, m_mixChunk, 0);
+   }
+
+   void AudioClip::stop()
+   {
+      if (m_usedChannel != -1)
+      {
+         Mix_HaltChannel(m_usedChannel);
+         m_usedChannel = -1;
+      }      
    }
 
    void AudioClip::load(const std::string filePath)
    {
       m_mixChunk = Mix_LoadWAV(filePath.c_str());
    }
-   void AudioClip::freeMem()
+   void AudioClip::freeMem() const
    {
       Mix_FreeChunk(m_mixChunk);
    }

@@ -5,7 +5,6 @@
 #include "EBall.h"
 #include "Walls.h"
 #include "EPaddle.h"
-#include "AudioLoader.h"
 
 namespace Arkanoid
 {
@@ -19,6 +18,9 @@ namespace Arkanoid
       Walls::BallCollisionResult doWallCollisions(EBall& ball, EPaddle& paddle) const;
       void draw(Graphics& graphics);
 
+      bool hasAnyAliveBricks() const;
+
+      void reset() const;
    private:
       Brick* m_bricks;
       static constexpr Color BricksColors[GameConfig::BoardRows] = { { 230,0,0 },{ 0,230,0 },{ 0,0,230 },{ 0,230,230 } };

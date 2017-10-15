@@ -146,6 +146,12 @@
     <Media Include="Sounds\arkpad.wav">
       <Filter>Resource Files</Filter>
     </Media>
+    <Media Include="Sounds\gameover.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
+    <Media Include="Sounds\win.wav">
+      <Filter>Resource Files</Filter>
+    </Media>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Fonts\iomanoid.ttf">

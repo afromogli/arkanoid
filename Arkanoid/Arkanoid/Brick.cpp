@@ -47,5 +47,10 @@ namespace Arkanoid
    {
       return m_isAlive;
    }
+
+   void Brick::setIsAlive()
+   {
+      m_isAlive = true;
+   }
 }
 

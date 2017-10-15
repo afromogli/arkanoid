@@ -18,7 +18,7 @@ namespace Arkanoid {
       void run();
       void setScene(shared_ptr<Scene> newScene);
 
-      static shared_ptr<EntityFactory> entityFactoryInstance;
+      static shared_ptr<EntityFactory> EntityFactoryInstance;
 
       Graphics& getGraphics() {
          return m_graphics;

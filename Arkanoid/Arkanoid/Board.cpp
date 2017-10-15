@@ -81,5 +81,25 @@ namespace Arkanoid
       }
       
    }
+
+   bool Board::hasAnyAliveBricks() const
+   {
+      for (int i = 0; i < GameConfig::BoardColumns * GameConfig::BoardRows; i++)
+      {
+         if (m_bricks[i].isAlive())
+         {
+            return true;
+         }  
+      }
+      return false;
+   }
+
+   void Board::reset() const
+   {
+      for (int i = 0; i < GameConfig::BoardColumns * GameConfig::BoardRows; i++)
+      {
+         m_bricks[i].setIsAlive();
+      }
+   }
 }
 
