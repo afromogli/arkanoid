@@ -3,6 +3,7 @@
 #include <vector>
 #include <SDL_mixer.h>
 #include <memory>
+#include <string>
 
 namespace Arkanoid
 {
